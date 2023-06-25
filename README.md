@@ -6,6 +6,7 @@ Official code implementation for the AME-CAM paper accepted by MICCAI 2023.
 Download the official BraTS 2021 Dataset Task 1
 Preprocess the dataset from 3D volume data into 2D slide with the following script.
 ```
+cd ./src/
 python3 gen_dataset.py -m t1 -d training/validate
 ```
 
@@ -39,24 +40,24 @@ DATASET_NAME
 ```
 ## Encoder Pretrain with Self-supervised Methods
 ```
-cd ./model_phase/
+cd ./src/encoder_phase/
 python3 pretrain_clnet.py -m t1 --model_type Res18
 ```
 ## Train and Test Multi-exit Classifier with Pretrained Encoder
 ```
-cd ./me_encoder/
+cd ./src/encoder_phase/
 python3 train_cnet.py -b 256 -m t1 --encoder_pretrained_path SimCLR/Res18_t1_ep100_b512
 python3 test_cnet.py -m t1 --pretrained_path Res18_t1_ep10_b256.ME
 ```
 ## Train and Test the Activation Aggregation Network with the Contrastive Loss
 ```
-cd ./attention_aggregation_network/
+cd ./src/attention_aggregation_network/
 python3 train_cnet.py -b 256 -m t1 --encoder_pretrained_path Res18_t1_ep10_b256.ME
 python3 test_cnet.py -m t1 --pretrained_path Res18_t1_ep10_b256.AME-CAM
 ```
 ## Run the Inference stage of AME-CAM 
 ```
-cd ./AME-CAM_inference/
+cd ./src/AME-CAM_inference/
 python3 main.py --pretrained_path Res18_t1_ep10_b256.AME-CAM -m t1
 ```
 
