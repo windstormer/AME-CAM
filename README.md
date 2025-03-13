@@ -69,10 +69,12 @@ python3 main.py --pretrained_path Res18_t1_ep10_b256.AME-CAM -m t1
 ## Citation
 If you use the code or results in your research, please use the following BibTeX entry.
 ```
-@article{chen2023ame,
-  title={AME-CAM: Attentive Multiple-Exit CAM for Weakly Supervised Segmentation on MRI Brain Tumor},
+@inproceedings{chen2023ame,
+  title={Ame-cam: Attentive multiple-exit cam for weakly supervised segmentation on mri brain tumor},
   author={Chen, Yu-Jen and Hu, Xinrong and Shi, Yiyu and Ho, Tsung-Yi},
-  journal={arXiv preprint arXiv:2306.14505},
-  year={2023}
+  booktitle={International Conference on Medical Image Computing and Computer-Assisted Intervention},
+  pages={173--182},
+  year={2023},
+  organization={Springer}
 }
 ```
